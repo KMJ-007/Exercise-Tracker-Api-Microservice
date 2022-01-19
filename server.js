@@ -52,23 +52,6 @@ app.post("/api/users", async (req,res)=>{
 });
 
 //now we have to give all user's data on /api/users request
-// app.get("/api/users",async (req,res)=>{
-//   const users= await User.find({});
-
-//     var userMap = [];
-  
-//       users.forEach(function(user) {
-//         // console.log(user);
-        
-//         userMap.push([user._id,user.username]);
-//       });
-  
-//       res.send(userMap);  
-    
-  
-// })
-
-
 app.get('/api/users', async (req, res) => {
   try {
     let users = await User.find({});
