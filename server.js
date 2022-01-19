@@ -52,20 +52,32 @@ app.post("/api/users", async (req,res)=>{
 });
 
 //now we have to give all user's data on /api/users request
-app.get("/api/users",async (req,res)=>{
-  const users= await User.find({});
+// app.get("/api/users",async (req,res)=>{
+//   const users= await User.find({});
 
-    var userMap = [];
+//     var userMap = [];
   
-      users.forEach(function(user) {
-        // console.log(user);
+//       users.forEach(function(user) {
+//         // console.log(user);
         
-        userMap.push([user._id,user.username]);
-      });
+//         userMap.push([user._id,user.username]);
+//       });
   
-      res.send(userMap);  
+//       res.send(userMap);  
     
   
+// })
+
+
+app.get('/api/users', async (req, res) => {
+  try {
+    let users = await User.find({});
+    res.json(users);
+  }
+  catch (error) {
+    res.json({ error });
+    console.log(error);
+  }
 })
 
 //now we have to get the data of exercise post request and store it to the model 
