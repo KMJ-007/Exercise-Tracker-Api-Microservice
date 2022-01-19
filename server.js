@@ -178,7 +178,7 @@ app.get("/api/users/:_id/logs", async(req,res)=>{
       var data={
       description:e.description,
       duration:e.duration,
-      date:e.date.parse(dateString),
+      date:e.date,
       }
       return data;
     })
